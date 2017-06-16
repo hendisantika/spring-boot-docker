@@ -20,3 +20,4 @@ dist/
 nbdist/
 .nb-gradle/
 gradle/
+.gradle/
