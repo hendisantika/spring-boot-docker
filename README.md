@@ -10,7 +10,7 @@
 + Health check (Docker tag 1.0-healthcheck https://github.com/f-lopes/spring-boot-docker/tree/healthcheck)
 + Debug mode
 
-####Available environment variables
+#### Available environment variables
 
 |Name|	Default|	Description
 |----| ------ | ------ |
