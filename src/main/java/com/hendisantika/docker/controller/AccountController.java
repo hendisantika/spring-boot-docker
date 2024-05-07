@@ -2,8 +2,8 @@ package com.hendisantika.docker.controller;
 
 import com.hendisantika.docker.model.Account;
 import com.hendisantika.docker.repository.AccountRepo;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +31,12 @@ public class AccountController {
             @RequestParam(value = "customer", required = false) String customerId
     ) {
 
-        Account res1 = accRepo.findOne(id);
+        Account res1 = accRepo.findById(id).get();
         Account res2 = accRepo.findByCustomerId(customerId);
 
         if (id != null) {
-            log.info("Data : " + new ResponseEntity(accRepo.findOne(id), HttpStatus.OK));
-            return new ResponseEntity(accRepo.findOne(id), HttpStatus.OK);
+            log.info("Data : " + new ResponseEntity(accRepo.findById(id).get(), HttpStatus.OK));
+            return new ResponseEntity(accRepo.findById(id).get(), HttpStatus.OK);
         } else if (customerId != null) {
             log.info("Data : " + new ResponseEntity(accRepo.findByCustomerId(customerId), HttpStatus.OK));
             return new ResponseEntity(accRepo.findByCustomerId(customerId), HttpStatus.OK);
